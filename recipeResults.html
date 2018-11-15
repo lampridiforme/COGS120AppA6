@@ -65,6 +65,7 @@
         width: 25px;
         height: 25px;
         text-align: center;
+        box-shadow: 2px 4px 9px #222222;
       }
 
       .filter {
@@ -77,6 +78,21 @@
 
       .filters {
         width: 100%;
+      }
+
+      .gobutton {
+        border-radius: 100px;
+        display: block;
+        text-align: center;
+        width: 110px;
+        box-shadow: 2px 4px 9px #222222;
+      }
+
+      .fadebackground {
+/*        background: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255, 1));
+*/      
+        -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
       }
 
 
@@ -173,8 +189,9 @@
             <div class="">
               <div class="align-middle" style="display: inline-block;">
                 Canned Cranberry Sauce
-                <div class="addbutton bg-light m-2" onclick="addToPlan(0, 'Canned Cranberry Sauce', 'https://payload223.cargocollective.com/1/4/130628/6773651/04.jpg', './index.html')">+</div>
-                <div class="addbutton bg-light m-2 align-middle" onclick="addToFavorites(0, 'Canned Cranberry Sauce', 'https://payload223.cargocollective.com/1/4/130628/6773651/04.jpg', './index.html', 'Monday')">*</div>
+                <div class="addbutton bg-light m-2" onclick="addToPlan(0, 'Canned Cranberry Sauce', 'https://payload223.cargocollective.com/1/4/130628/6773651/04.jpg', './recipeResult.html')">+</div>
+                <div class="addbutton bg-light m-2 align-middle" onclick="addToFavorites(0, 'Canned Cranberry Sauce', 'https://payload223.cargocollective.com/1/4/130628/6773651/04.jpg', './recipeResult.html', 'Monday')">*</div>
+                <div class="gobutton bg-light m-2" onclick="goto('./recipeResult.html')">Go To Recipe</div>
               </div>
               <!-- <div class="align-middle recipeinfo" style="display: inline-block;">
                 <i class="material-icons">
@@ -186,7 +203,9 @@
               </div> -->
             </div>
           </div>
-          <div class="" style="background-image: url('https://payload223.cargocollective.com/1/4/130628/6773651/04.jpg'); background-size: cover; width: 100%; height: 90%;">
+          <div class="" style="background: linear-gradient(
+            rgba(248,249,250, 1.0), rgba(248,249,250, 0.2), rgba(248,249,250, 0.1), rgba(248,249,250, 0.01), rgba(0, 0, 0, 0)
+    ), url('https://payload223.cargocollective.com/1/4/130628/6773651/04.jpg'); background-size: cover; width: 100%; height: 90%;">
           </div>
           <!-- <div class="align-middle recipeinfo" style="display: inline-block;">
             <i class="material-icons">
@@ -203,12 +222,15 @@
             <div class="">
               <div class="align-middle" style="display: inline-block;">
                 Powerade Turkey
-                <div class="addbutton bg-light m-2" onclick="addToPlan(1, 'Powerade Turkey', 'https://payload223.cargocollective.com/1/4/130628/6773651/01.jpg', './index.html')">+</div>
-                <div class="addbutton bg-light m-2 align-middle" onclick="addToPlan(1, 'Powerade Turkey', 'https://payload223.cargocollective.com/1/4/130628/6773651/01.jpg', './index.html')">*</div>
+                <div class="addbutton bg-light m-2" onclick="addToPlan(1, 'Powerade Turkey', 'https://payload223.cargocollective.com/1/4/130628/6773651/01.jpg', './recipeResult.html')">+</div>
+                <div class="addbutton bg-light m-2 align-middle" onclick="">*</div>
+                <div class="gobutton bg-light m-2" onclick="goto('./recipeResult.html')">Go To Recipe</div>
               </div>
             </div>
           </div>
-          <div class="" style="background-image: url('https://payload223.cargocollective.com/1/4/130628/6773651/01.jpg'); background-size: cover; width: 100%; height: 90%;">
+          <div class="" style="background: linear-gradient(
+            rgba(248,249,250, 1.0), rgba(248,249,250, 0.2), rgba(248,249,250, 0.1), rgba(248,249,250, 0.01), rgba(0, 0, 0, 0)
+    ), url('https://payload223.cargocollective.com/1/4/130628/6773651/01.jpg'); background-size: cover; width: 100%; height: 90%;">
           </div>
         </div>
 
@@ -217,12 +239,15 @@
             <div class="">
               <div class="align-middle" style="display: inline-block;">
                 Last Year's Leftovers
-                <div class="addbutton bg-light m-2" onclick="addToPlan(2, 'Last Year\'s Leftovers', 'https://payload223.cargocollective.com/1/4/130628/6773651/07.jpg', './index.html')">+</div>
+                <div class="addbutton bg-light m-2" onclick="addToPlan(2, 'Last Year\'s Leftovers', 'https://payload223.cargocollective.com/1/4/130628/6773651/07.jpg', './recipeResult.html')">+</div>
                 <div class="addbutton bg-light m-2 align-middle">*</div>
+                <div class="gobutton bg-light m-2" onclick="goto('./recipeResult.html')">Go To Recipe</div>
               </div>
             </div>
           </div>
-          <div class="" style="background-image: url('https://payload223.cargocollective.com/1/4/130628/6773651/07.jpg'); background-size: cover; width: 100%; height: 90%;">
+          <div class="" style="background: linear-gradient(
+            rgba(248,249,250, 1.0), rgba(248,249,250, 0.2), rgba(248,249,250, 0.1), rgba(248,249,250, 0.01), rgba(0, 0, 0, 0)
+    ), url('https://payload223.cargocollective.com/1/4/130628/6773651/07.jpg'); background-size: cover; width: 100%; height: 90%;">
           </div>
         </div>
 
@@ -231,12 +256,15 @@
             <div class="">
               <div class="align-middle" style="display: inline-block;">
                 Rudolph
-                <div class="addbutton bg-light m-2" onclick="addToPlan(3, 'Rudolph', 'https://payload231.cargocollective.com/1/4/130628/6930157/10.jpg', './index.html')">+</div>
+                <div class="addbutton bg-light m-2" onclick="addToPlan(3, 'Rudolph', 'https://payload231.cargocollective.com/1/4/130628/6930157/10.jpg', './recipeResult.html')">+</div>
                 <div class="addbutton bg-light m-2 align-middle">*</div>
+                <div class="gobutton bg-light m-2" onclick="goto('./recipeResult.html')">Go To Recipe</div>
               </div>
             </div>
           </div>
-          <div class="" style="background-image: url('https://payload231.cargocollective.com/1/4/130628/6930157/10.jpg'); background-size: cover; width: 100%; height: 90%;">
+          <div class="" style="background: linear-gradient(
+            rgba(248,249,250, 1.0), rgba(248,249,250, 0.2), rgba(248,249,250, 0.1), rgba(248,249,250, 0.01), rgba(0, 0, 0, 0)
+    ), url('https://payload231.cargocollective.com/1/4/130628/6930157/10.jpg'); background-size: cover; width: 100%; height: 90%;">
           </div>
         </div>
 
@@ -245,12 +273,15 @@
             <div class="">
               <div class="align-middle" style="display: inline-block;">
                 Plymoth Cauliflower
-                <div class="addbutton bg-light m-2" onclick="addToPlan(4, 'Plymoth Cauliflower', 'https://payload223.cargocollective.com/1/4/130628/6773651/06.jpg', './index.html')">+</div>
+                <div class="addbutton bg-light m-2" onclick="addToPlan(4, 'Plymoth Cauliflower', 'https://payload223.cargocollective.com/1/4/130628/6773651/06.jpg', './recipeResult.html')">+</div>
                 <div class="addbutton bg-light m-2 align-middle">*</div>
+                <div class="gobutton bg-light m-2" onclick="goto('./recipeResult.html')">Go To Recipe</div>
               </div>
             </div>
           </div>
-          <div class="" style="background-image: url('https://payload223.cargocollective.com/1/4/130628/6773651/06.jpg'); background-size: cover; width: 100%; height: 90%; margin-bottom: 80px;">
+          <div class="" style="background: linear-gradient(
+            rgba(248,249,250, 1.0), rgba(248,249,250, 0.2), rgba(248,249,250, 0.1), rgba(248,249,250, 0.01), rgba(0, 0, 0, 0)
+    ), url('https://payload223.cargocollective.com/1/4/130628/6773651/06.jpg'); background-size: cover; width: 100%; height: 90%; margin-bottom: 80px;">
           </div>
         </div>
 
