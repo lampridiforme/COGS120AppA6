@@ -10,12 +10,12 @@
 
     <style>
       body {
-        width: 100%; 
+        width: 100%;
         height: 100%;
       }
 
       .maintitle {
-        text-align: center; 
+        text-align: center;
         width: 100%;
         height: 50px;
       }
@@ -39,6 +39,33 @@
       .sharpcorners {
         border-radius: 0px;
       }
+
+      /* The snackbar - position it at the bottom and in the middle of the screen */
+      #snackbar {
+          visibility: hidden; /* Hidden by default. Visible on click */
+          min-width: 250px; /* Set a default minimum width */
+          margin-left: -125px; /* Divide value of min-width by 2 */
+          background-color: #333; /* Black background color */
+          color: #fff; /* White text color */
+          text-align: center; /* Centered text */
+          border-radius: 2px; /* Rounded borders */
+          padding: 16px; /* Padding */
+          position: fixed; /* Sit on top of the screen */
+          z-index: 1; /* Add a z-index if needed */
+          left: 50%; /* Center the snackbar */
+          bottom: 100px; /* 30px from the bottom */
+      }
+
+      /* Show the snackbar when clicking on a button (class added with JavaScript) */
+      #snackbar.show {
+          visibility: visible; /* Show the snackbar */
+          /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+         However, delay the fade out process for 2.5 seconds */
+         -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+         animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+
     </style>
 
     <title>Shopping List</title>
@@ -53,7 +80,7 @@
         <button type="button" class="btn btn-secondary btn-lg sharpcorners" onclick="goto('./listEdit.html')">Edit</button>
       </div>
     </div>
- 
+
     <button type="button" class="btn btn-info btn-lg btn-block" style="width: 90%; margin-left: 20px; margin-top: 20px;" onclick="goto('./scanEdit.html')">Scan Receipt</button>
 
     <div class="primarycontent bg-light p-3 d-flex flex-column">
@@ -78,6 +105,10 @@
       </div>
     </footer>
 
+    <!--     toasts -->
+    <div id="snackbar"></div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -86,6 +117,20 @@
     <script>
       function goto(url) {
         window.location = url;
+      }
+
+      //toast function
+      function toast(message) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+
+        x.innerHTML = message;
+
+        // Add the "show" class to DIV
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       }
 
       function initPage() {
@@ -98,6 +143,12 @@
           newItemDiv.innerHTML = name;
           document.getElementById('misclist').appendChild(newItemDiv);
         }
+        if (localStorage.getItem("clickedSave") === "true") {
+          //call toast function
+          toast("Updated Inventory and Storage!");
+        }
+        //set clickedSave to false
+        localStorage.setItem("clickedSave", "false");
       }
 
       initPage();
