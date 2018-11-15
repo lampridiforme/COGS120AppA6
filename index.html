@@ -215,6 +215,9 @@
       </div>
     </div>
 
+    <!--     toasts -->
+    <div id="snackbar"></div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -317,8 +320,22 @@
       }
 
       // remove ingredients upon deletion
+      // TODO
       function removeIngredients() {
 
+      }
+
+      function toast(message) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+
+        x.innerHTML = message;
+
+        // Add the "show" class to DIV
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       }
 
       // deletion: grab the recipeid attribute, load from localstorage, find recipe in localstorage that has this id, delete it from the entry, (reload page?)
