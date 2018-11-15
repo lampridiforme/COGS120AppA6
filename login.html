@@ -78,18 +78,6 @@
       function goto(url) {
         window.location = url;
       }
-
-      function initPage() {
-        let plannedRecipes = JSON.parse(localStorage.getItem('plannedRecipes'));
-        if (!plannedRecipes) plannedRecipes = [];
-        for (let i = 0; i < plannedRecipes.length; i++) {
-          let newDiv = document.createElement('div');
-          newDiv.innerHTML = '<div class="text-left categorytitle text-dark">' + plannedRecipes[i].name + ' (' + plannedRecipes[i].day + ')</div>';
-          document.getElementById('recipeList').appendChild(newDiv);
-        }
-      }
-
-      initPage();
     </script>
   </body>
 </html>
