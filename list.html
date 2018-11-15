@@ -50,7 +50,7 @@
         <button type="button" class="btn btn-secondary sharpcorners btn-lg text-white" onclick="">Sort by Recipe</button> -->
       </div>
       <div class="btn-group float-right" role="group">
-        <button type="button" class="btn btn-secondary btn-lg sharpcorners">Edit</button>
+        <button type="button" class="btn btn-secondary btn-lg sharpcorners" onclick="goto('./listEdit.html')">Edit</button>
       </div>
     </div>
  
@@ -92,9 +92,10 @@
         let toBuyList = JSON.parse(localStorage.getItem('toBuy'));
         if (!toBuyList) toBuyList = [];
         for (let i = 0; i < toBuyList.length; i++) {
+          let name = (!toBuyList[i].name) ? toBuyList[i] : toBuyList[i].name; // support name and object representation
           // TODO: create different categories soon
           let newItemDiv = document.createElement('li');
-          newItemDiv.innerHTML = toBuyList[i];
+          newItemDiv.innerHTML = name;
           document.getElementById('misclist').appendChild(newItemDiv);
         }
       }

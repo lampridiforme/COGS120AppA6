@@ -142,6 +142,7 @@
       <div class="btn-group float-left" role="group">
       </div>
       <div class="btn-group float-right" role="group">
+        <button type="button" class="btn btn-secondary btn-lg sharpcorners" style="color: rgb(190, 190, 190);" onclick="goto('./login.html')">Log Out</button>
         <button id="editbutton" type="button" class="btn btn-secondary btn-lg sharpcorners" onclick="toggleEditMode()">Edit</button>
       </div>
     </div>
@@ -263,12 +264,26 @@
           for (let i = 0; i < closebuttons.length; i++) {
             closebuttons[i].classList.remove('hideme');
           }
+
+          // remove onclick goto for recipes
+          let thumbnails = document.getElementsByClassName('recipeblock');
+          console.log(thumbnails);
+          for (let i = 0; i < thumbnails.length; i++) { // NOTE: does not actually work if we need unique urls
+            console.log(thumbnails[i]);
+            thumbnails[i].onclick = () => console.log('sorry, nothing');
+          }
         } 
         else {
           editbutton.classList.remove('text-warning');
           for (let i = 0; i < closebuttons.length; i++) {
             closebuttons[i].classList.add('hideme');
           }
+
+          // add onclick goto for recipes
+          let thumbnails = document.getElementsByClassName('recipeblock');
+          for (let i = 0; i < thumbnails.length; i++) { // NOTE: does not actually work if we need unique urls
+            thumbnails[i].onclick = () => goto("./recipeResultHome.html");
+          };
         }
 
       }
@@ -278,7 +293,7 @@
         // newDiv.innerHTML = "<a href='" + recipe.url + "'>" + recipe.name + "</a>";
         newDiv.style.backgroundImage = "url(\'" + recipe.image + "\')";
         newDiv.style.backgroundSize = "cover";
-        newDiv.onclick = () => goto("./recipeResult.html");
+        newDiv.onclick = () => goto("./recipeResultHome.html");
         console.log(recipe.image);
         let newCloseButton = document.createElement("div");
         newCloseButton.innerHTML = "x";

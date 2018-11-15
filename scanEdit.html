@@ -75,9 +75,9 @@
         <input type="text" class="form-control itemprice" aria-label="Text input with checkbox" value="3">
       </div>
 
-      <button id="addEntryButton" type="button" class="btn btn-info btn-lg btn-block" style="" onclick="addNewEntry()">+</button>
+      <button id="addEntryButton" type="button" class="btn btn-info btn-lg btn-block" style="" onclick="addNewEntry()">+ New Entry</button>
 
-      <div class="row">
+      <div class="row" style="margin-top: 10px;">
         <button type="button" class="btn btn-secondary col-6" data-dismiss="modal" onclick="goto('./list.html')">Cancel</button>
         <button type="button" class="btn btn-primary col-6" onclick="saveChanges()">Save</button>
       </div>
@@ -152,16 +152,34 @@
         return itemList;
       }
 
+      // borrowed from: https://stackoverflow.com/questions/7176908/how-to-get-index-of-object-by-its-property-in-javascript
+      function findWithAttr(array, attr, value) {
+          for(var i = 0; i < array.length; i += 1) {
+            console.log("findWithAttr i: " + i);
+              if(array[i][attr] === value) {
+                  return i;
+              }
+          }
+          return -1;
+      }
+
       function removeFromList(list) {
         let oldToBuyList = JSON.parse(localStorage.getItem('toBuy'));
         if (!oldToBuyList) oldToBuyList = [];
 
+        // convert all to lowercase
+        oldToBuyList.map((val) => (!val.name) ? val.toLowerCase() : val.name.toLowerCase());
+        list.map((val) => (!val.name) ? val.toLowerCase() : val.name.toLowerCase());
+
+        console.log(oldToBuyList);
+        console.log(list);
+
         for (let i = 0; i < list.length; i++) {
           console.log("list element: " + list[i].name);
           console.log("position on oldList: " + oldToBuyList.indexOf(list[i].name));
-          if (oldToBuyList.indexOf(list[i].name) > -1) {
+          if (oldToBuyList.indexOf(list[i].name) > -1 || findWithAttr(oldToBuyList, "name", list[i].name) > -1) {
             console.log(oldToBuyList);
-            oldToBuyList.splice(oldToBuyList.indexOf(list[i].name), 1);
+            oldToBuyList.splice(oldToBuyList.indexOf(list[i].name), 1); // use original object-based representation here
             i = 0; // lol
           }
         }
