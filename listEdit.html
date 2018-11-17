@@ -10,12 +10,12 @@
 
     <style>
       body {
-        width: 100%; 
+        width: 100%;
         height: 100%;
       }
 
       .maintitle {
-        text-align: center; 
+        text-align: center;
         width: 100%;
         height: 50px;
       }
@@ -54,10 +54,10 @@
       </div>
     </div>
 
-    <div class="primarycontent bg-light p-3 d-flex flex-column">
+    <div class="primarycontent bg-light p-3 d-flex flex-column" style="display: block!important;">
       <button id="addEntryButton" type="button" class="btn btn-info btn-lg btn-block" style="" onclick="addNewEntry()">+ New Entry</button>
 
-      <div class="row" style="margin-top: 10px;">
+      <div class="row" style="margin-top: 10px; margin-bottom: 80px;">
         <button type="button" class="btn btn-secondary col-6" data-dismiss="modal" onclick="goto('./list.html')">Cancel</button>
         <button type="button" class="btn btn-primary col-6" onclick="saveChanges()">Save</button>
       </div>
@@ -103,13 +103,13 @@
           let value = itemPriceElems[i].value;
           (isNaN(value) || !value) ? itemPrices.push(0) : itemPrices.push(value);
         }
-        
+
         // get all checkbox statuses
         let inputs = document.getElementsByTagName("input");
         for (let i = 0; i < inputs.length; i++) {
           if(inputs[i].type == "checkbox") {
-            checkboxes.push(inputs[i].checked); 
-          } 
+            checkboxes.push(inputs[i].checked);
+          }
         }
 
         console.log(checkboxes);
@@ -139,7 +139,7 @@
         // let oldlist = JSON.parse(localStorage.getItem('inventoryData'));
         // (!oldlist) ? oldlist = list : oldlist = oldlist.concat(list);
         // localStorage.setItem('inventoryData', JSON.stringify(oldlist));
-        
+
         // console.log(oldlist);
       }
 
